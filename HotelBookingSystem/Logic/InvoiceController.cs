@@ -3,10 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HotelBookingSystem.Data;
 
 namespace HotelBookingSystem.Logic
 {
-    class InvoiceController
+    public static class InvoiceController
     {
+        public static void NewInvoice(int guestId)
+        {
+            using (var context = new HotelMasterEntities())
+            {
+                context.Invoices.Add(new Invoice()
+                {
+                    GuestIDFK = guestId
+                });
+            }
+        }
     }
 }

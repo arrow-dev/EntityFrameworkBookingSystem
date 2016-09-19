@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects.DataClasses;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,7 +47,7 @@ namespace HotelBookingSystem.Logic
             }
         }
 
-        public static dynamic GetAllRooms()
+        public static dynamic GetAllRoomDetails()
         {
             using (var context = new HotelMasterEntities())
             {
@@ -55,7 +56,7 @@ namespace HotelBookingSystem.Logic
                     r.RoomID,
                     r.Description,
                     r.DoubleBed,
-                    r.Price
+                    Price = "$" + Math.Round(r.Price, 2)
                 }).ToList();
             }
         }

@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabGuests = new System.Windows.Forms.TabPage();
-            this.btnEditGuest = new System.Windows.Forms.Button();
-            this.btnAddGuest = new System.Windows.Forms.Button();
-            this.dataGridViewGuests = new System.Windows.Forms.DataGridView();
             this.tabBookings = new System.Windows.Forms.TabPage();
+            this.btnEditBooking = new System.Windows.Forms.Button();
+            this.btnNewBooking = new System.Windows.Forms.Button();
             this.dataGridViewBookings = new System.Windows.Forms.DataGridView();
             this.tabRooms = new System.Windows.Forms.TabPage();
             this.btnEditRoom = new System.Windows.Forms.Button();
             this.btnAddRoom = new System.Windows.Forms.Button();
             this.dataGridViewRooms = new System.Windows.Forms.DataGridView();
-            this.btnEditBooking = new System.Windows.Forms.Button();
-            this.btnNewBooking = new System.Windows.Forms.Button();
+            this.tabGuests = new System.Windows.Forms.TabPage();
+            this.btnEditGuest = new System.Windows.Forms.Button();
+            this.btnAddGuest = new System.Windows.Forms.Button();
+            this.dataGridViewGuests = new System.Windows.Forms.DataGridView();
             this.tabControl.SuspendLayout();
-            this.tabGuests.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGuests)).BeginInit();
             this.tabBookings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookings)).BeginInit();
             this.tabRooms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRooms)).BeginInit();
+            this.tabGuests.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGuests)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -61,51 +61,6 @@
             this.tabControl.Size = new System.Drawing.Size(1117, 345);
             this.tabControl.TabIndex = 0;
             // 
-            // tabGuests
-            // 
-            this.tabGuests.Controls.Add(this.btnEditGuest);
-            this.tabGuests.Controls.Add(this.btnAddGuest);
-            this.tabGuests.Controls.Add(this.dataGridViewGuests);
-            this.tabGuests.Location = new System.Drawing.Point(4, 22);
-            this.tabGuests.Name = "tabGuests";
-            this.tabGuests.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGuests.Size = new System.Drawing.Size(1109, 319);
-            this.tabGuests.TabIndex = 0;
-            this.tabGuests.Text = "Guests";
-            this.tabGuests.UseVisualStyleBackColor = true;
-            // 
-            // btnEditGuest
-            // 
-            this.btnEditGuest.Location = new System.Drawing.Point(834, 45);
-            this.btnEditGuest.Name = "btnEditGuest";
-            this.btnEditGuest.Size = new System.Drawing.Size(269, 23);
-            this.btnEditGuest.TabIndex = 2;
-            this.btnEditGuest.Text = "Edit Guest";
-            this.btnEditGuest.UseVisualStyleBackColor = true;
-            this.btnEditGuest.Click += new System.EventHandler(this.btnEditGuest_Click);
-            // 
-            // btnAddGuest
-            // 
-            this.btnAddGuest.Location = new System.Drawing.Point(834, 16);
-            this.btnAddGuest.Name = "btnAddGuest";
-            this.btnAddGuest.Size = new System.Drawing.Size(269, 23);
-            this.btnAddGuest.TabIndex = 1;
-            this.btnAddGuest.Text = "Add Guest";
-            this.btnAddGuest.UseVisualStyleBackColor = true;
-            this.btnAddGuest.Click += new System.EventHandler(this.btnAddGuest_Click);
-            // 
-            // dataGridViewGuests
-            // 
-            this.dataGridViewGuests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewGuests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewGuests.Location = new System.Drawing.Point(6, 6);
-            this.dataGridViewGuests.MultiSelect = false;
-            this.dataGridViewGuests.Name = "dataGridViewGuests";
-            this.dataGridViewGuests.RowHeadersVisible = false;
-            this.dataGridViewGuests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewGuests.Size = new System.Drawing.Size(822, 307);
-            this.dataGridViewGuests.TabIndex = 0;
-            // 
             // tabBookings
             // 
             this.tabBookings.Controls.Add(this.btnEditBooking);
@@ -118,6 +73,25 @@
             this.tabBookings.TabIndex = 1;
             this.tabBookings.Text = "Bookings";
             this.tabBookings.UseVisualStyleBackColor = true;
+            // 
+            // btnEditBooking
+            // 
+            this.btnEditBooking.Location = new System.Drawing.Point(834, 45);
+            this.btnEditBooking.Name = "btnEditBooking";
+            this.btnEditBooking.Size = new System.Drawing.Size(269, 23);
+            this.btnEditBooking.TabIndex = 7;
+            this.btnEditBooking.Text = "Edit booking";
+            this.btnEditBooking.UseVisualStyleBackColor = true;
+            // 
+            // btnNewBooking
+            // 
+            this.btnNewBooking.Location = new System.Drawing.Point(834, 16);
+            this.btnNewBooking.Name = "btnNewBooking";
+            this.btnNewBooking.Size = new System.Drawing.Size(269, 23);
+            this.btnNewBooking.TabIndex = 6;
+            this.btnNewBooking.Text = "New booking";
+            this.btnNewBooking.UseVisualStyleBackColor = true;
+            this.btnNewBooking.Click += new System.EventHandler(this.btnNewBooking_Click);
             // 
             // dataGridViewBookings
             // 
@@ -176,23 +150,50 @@
             this.dataGridViewRooms.Size = new System.Drawing.Size(822, 307);
             this.dataGridViewRooms.TabIndex = 3;
             // 
-            // btnEditBooking
+            // tabGuests
             // 
-            this.btnEditBooking.Location = new System.Drawing.Point(834, 45);
-            this.btnEditBooking.Name = "btnEditBooking";
-            this.btnEditBooking.Size = new System.Drawing.Size(269, 23);
-            this.btnEditBooking.TabIndex = 7;
-            this.btnEditBooking.Text = "Edit booking";
-            this.btnEditBooking.UseVisualStyleBackColor = true;
+            this.tabGuests.Controls.Add(this.btnEditGuest);
+            this.tabGuests.Controls.Add(this.btnAddGuest);
+            this.tabGuests.Controls.Add(this.dataGridViewGuests);
+            this.tabGuests.Location = new System.Drawing.Point(4, 22);
+            this.tabGuests.Name = "tabGuests";
+            this.tabGuests.Padding = new System.Windows.Forms.Padding(3);
+            this.tabGuests.Size = new System.Drawing.Size(1109, 319);
+            this.tabGuests.TabIndex = 0;
+            this.tabGuests.Text = "Guests";
+            this.tabGuests.UseVisualStyleBackColor = true;
             // 
-            // btnNewBooking
+            // btnEditGuest
             // 
-            this.btnNewBooking.Location = new System.Drawing.Point(834, 16);
-            this.btnNewBooking.Name = "btnNewBooking";
-            this.btnNewBooking.Size = new System.Drawing.Size(269, 23);
-            this.btnNewBooking.TabIndex = 6;
-            this.btnNewBooking.Text = "New booking";
-            this.btnNewBooking.UseVisualStyleBackColor = true;
+            this.btnEditGuest.Location = new System.Drawing.Point(834, 45);
+            this.btnEditGuest.Name = "btnEditGuest";
+            this.btnEditGuest.Size = new System.Drawing.Size(269, 23);
+            this.btnEditGuest.TabIndex = 2;
+            this.btnEditGuest.Text = "Edit Guest";
+            this.btnEditGuest.UseVisualStyleBackColor = true;
+            this.btnEditGuest.Click += new System.EventHandler(this.btnEditGuest_Click);
+            // 
+            // btnAddGuest
+            // 
+            this.btnAddGuest.Location = new System.Drawing.Point(834, 16);
+            this.btnAddGuest.Name = "btnAddGuest";
+            this.btnAddGuest.Size = new System.Drawing.Size(269, 23);
+            this.btnAddGuest.TabIndex = 1;
+            this.btnAddGuest.Text = "Add Guest";
+            this.btnAddGuest.UseVisualStyleBackColor = true;
+            this.btnAddGuest.Click += new System.EventHandler(this.btnAddGuest_Click);
+            // 
+            // dataGridViewGuests
+            // 
+            this.dataGridViewGuests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewGuests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewGuests.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewGuests.MultiSelect = false;
+            this.dataGridViewGuests.Name = "dataGridViewGuests";
+            this.dataGridViewGuests.RowHeadersVisible = false;
+            this.dataGridViewGuests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewGuests.Size = new System.Drawing.Size(822, 307);
+            this.dataGridViewGuests.TabIndex = 0;
             // 
             // FormMain
             // 
@@ -203,12 +204,12 @@
             this.Name = "FormMain";
             this.Text = "Hotel Booking System";
             this.tabControl.ResumeLayout(false);
-            this.tabGuests.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGuests)).EndInit();
             this.tabBookings.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookings)).EndInit();
             this.tabRooms.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRooms)).EndInit();
+            this.tabGuests.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGuests)).EndInit();
             this.ResumeLayout(false);
 
         }

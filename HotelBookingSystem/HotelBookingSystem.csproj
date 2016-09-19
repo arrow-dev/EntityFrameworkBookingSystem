@@ -75,6 +75,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormAddBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAddBooking.Designer.cs">
+      <DependentUpon>FormAddBooking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormAddRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     <Compile Include="Data\Room.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\FormAddBooking.resx">
+      <DependentUpon>FormAddBooking.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddRoom.resx">
       <DependentUpon>FormAddRoom.cs</DependentUpon>
     </EmbeddedResource>

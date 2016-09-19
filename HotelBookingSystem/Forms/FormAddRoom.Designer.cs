@@ -108,7 +108,8 @@
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.btnSave);
             this.Name = "FormAddRoom";
-            this.Text = "FormAddRoom";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Add Room";
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

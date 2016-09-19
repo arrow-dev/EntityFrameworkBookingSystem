@@ -108,7 +108,8 @@
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.btnSave);
             this.Name = "FormEditRoom";
-            this.Text = "FormEditRoom";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Edit Room";
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

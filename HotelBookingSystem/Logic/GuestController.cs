@@ -52,7 +52,7 @@ namespace HotelBookingSystem.Logic
             }
         }
 
-        public static dynamic GetAllGuests()
+        public static dynamic GetAllGuestDetails()
         {
             using (var context = new HotelMasterEntities())
             {

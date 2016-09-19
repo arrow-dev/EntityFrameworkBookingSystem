@@ -150,7 +150,7 @@
             this.Controls.Add(this.btnSave);
             this.Name = "FormAddGuest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormAddGuest";
+            this.Text = "Add Guest";
             this.ResumeLayout(false);
             this.PerformLayout();
 

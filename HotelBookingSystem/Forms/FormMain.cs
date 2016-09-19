@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,26 @@ namespace HotelBookingSystem
 
         private void LoadDataGridViews()
         {
-            dataGridViewGuests.DataSource = GuestController.GetAllGuests();
-            dataGridViewRooms.DataSource = RoomController.GetAllRooms();
+            //Load data
+            dataGridViewGuests.DataSource = GuestController.GetAllGuestDetails();
+            dataGridViewRooms.DataSource = RoomController.GetAllRoomDetails();
+
+            //Set up event handlers to customize header names after data is loaded
+            dataGridViewGuests.DataBindingComplete += DataGridViewGuests_DataBindingComplete;
+            dataGridViewRooms.DataBindingComplete += DataGridViewRooms_DataBindingComplete;
+        }
+
+        private void DataGridViewGuests_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridViewGuests.Columns[0].HeaderText = "Guest ID";
+            dataGridViewGuests.Columns[1].HeaderText = "First Name";
+            dataGridViewGuests.Columns[2].HeaderText = "Last Name";
+        }
+
+        private void DataGridViewRooms_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridViewRooms.Columns[0].HeaderText = "Room ID";
+            dataGridViewRooms.Columns[2].HeaderText = "Double Bed";
         }
 
         private void btnAddGuest_Click(object sender, EventArgs e)
@@ -62,6 +81,14 @@ namespace HotelBookingSystem
                 {
                     LoadDataGridViews();
                 }
+            }
+        }
+
+        private void btnNewBooking_Click(object sender, EventArgs e)
+        {
+            if (new FormAddBooking().ShowDialog() == DialogResult.OK)
+            {
+                LoadDataGridViews();
             }
         }
     }
