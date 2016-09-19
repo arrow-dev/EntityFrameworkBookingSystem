@@ -26,7 +26,7 @@ namespace HotelBookingSystem.Forms
 
         private void btnBook_Click(object sender, EventArgs e)
         {
-            dataGridViewAvailableRooms.DataSource = BookingController.GetAvailableRooms(dtpCheckIn.Value, dtpCheckOut.Value);
+            dataGridViewAvailableRooms.DataSource = RoomController.GetAvailableRooms(dtpCheckIn.Value, dtpCheckOut.Value);
         }
     }
 }

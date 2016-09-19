@@ -68,5 +68,21 @@ namespace HotelBookingSystem.Logic
                 context.Rooms.Remove(GetRoomById(id));
             }
         }
+
+        public static dynamic GetAvailableRooms(DateTime checkIn, DateTime checkOut)
+        {
+            using (var context = new HotelMasterEntities())
+            {
+                var bookedRooms = context.Bookings.Where(b => checkIn >= b.CheckInDate && checkOut <= b.CheckOutDate).Select(b => b.RoomIDFK);
+                var availableRooms = context.Rooms.Where(r => !bookedRooms.Contains(r.RoomID)).Select(r => new
+                {
+                    r.RoomID,
+                    r.Description,
+                    r.DoubleBed,
+                    r.Price
+                }).ToList();
+                return availableRooms;
+            }
+        }
     }
 }
