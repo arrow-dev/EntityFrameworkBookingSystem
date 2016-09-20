@@ -27,10 +27,12 @@ namespace HotelBookingSystem
             //Load data
             dataGridViewGuests.DataSource = GuestController.GetAllGuestDetails();
             dataGridViewRooms.DataSource = RoomController.GetAllRoomDetails();
+            dataGridViewBookings.DataSource = BookingController.GetAllBookingDetails();
 
             //Set up event handlers to customize header names after data is loaded
             dataGridViewGuests.DataBindingComplete += DataGridViewGuests_DataBindingComplete;
             dataGridViewRooms.DataBindingComplete += DataGridViewRooms_DataBindingComplete;
+            dataGridViewBookings.DataBindingComplete += DataGridViewBookings_DataBindingComplete;
         }
 
         private void DataGridViewGuests_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -44,6 +46,11 @@ namespace HotelBookingSystem
         {
             dataGridViewRooms.Columns[0].HeaderText = "Room ID";
             dataGridViewRooms.Columns[2].HeaderText = "Double Bed";
+        }
+
+        private void DataGridViewBookings_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            //throw new NotImplementedException();
         }
 
         private void btnAddGuest_Click(object sender, EventArgs e)

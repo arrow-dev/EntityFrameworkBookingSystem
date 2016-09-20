@@ -73,7 +73,7 @@ namespace HotelBookingSystem.Logic
         {
             using (var context = new HotelMasterEntities())
             {
-                var bookedRooms = context.Bookings.Where(b => checkIn >= b.CheckInDate && checkOut <= b.CheckOutDate).Select(b => b.RoomIDFK);
+                var bookedRooms = context.Bookings.Where(b => (b.CheckInDate >= checkIn.Date && b.CheckInDate < checkOut.Date) || (b.CheckOutDate > checkIn.Date && b.CheckOutDate <= checkOut.Date)).Select(b => b.RoomIDFK);
                 var availableRooms = context.Rooms.Where(r => !bookedRooms.Contains(r.RoomID)).Select(r => new
                 {
                     r.RoomID,

@@ -16,17 +16,47 @@ namespace HotelBookingSystem.Forms
         public FormAddBooking()
         {
             InitializeComponent();
+            SetDefaultCheckout();
             LoadData();
+            dtpCheckIn.ValueChanged += Dates_ValueChanged;
+            dtpCheckOut.ValueChanged += Dates_ValueChanged;
+        }
+
+        private void Dates_ValueChanged(object sender, EventArgs e)
+        {
+            SetDefaultCheckout();
+            LoadData();
+        }
+
+        private void SetDefaultCheckout()
+        {
+            if (dtpCheckOut.Value.Date <= dtpCheckIn.Value.Date)
+            {
+                dtpCheckOut.Value = dtpCheckIn.Value.AddDays(1);
+            }
         }
 
         public void LoadData()
         {
             dataGridViewGuests.DataSource = GuestController.GetAllGuestDetails();
+            dataGridViewAvailableRooms.DataSource = RoomController.GetAvailableRooms(dtpCheckIn.Value, dtpCheckOut.Value);
         }
 
         private void btnBook_Click(object sender, EventArgs e)
         {
-            dataGridViewAvailableRooms.DataSource = RoomController.GetAvailableRooms(dtpCheckIn.Value, dtpCheckOut.Value);
+            var guestId = int.Parse(dataGridViewGuests.SelectedRows[0].Cells[0].Value.ToString());
+            var roomId = int.Parse(dataGridViewAvailableRooms.SelectedRows[0].Cells[0].Value.ToString());
+            var checkIn = dtpCheckIn.Value.Date;
+            var checkOut = dtpCheckOut.Value.Date;
+            var invoiceId = InvoiceController.GetCurrentInvoiceId(guestId);
+            //Check if there is a current invoice, if not create one.
+            if (invoiceId == 0)
+            {
+                InvoiceController.NewInvoice(guestId);
+                invoiceId = InvoiceController.GetCurrentInvoiceId(guestId);
+            }
+            //Create Booking
+            BookingController.NewBooking(invoiceId, guestId, roomId, checkIn, checkOut, 0);
         }
     }
 }

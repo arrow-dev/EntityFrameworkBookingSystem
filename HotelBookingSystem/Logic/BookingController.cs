@@ -22,6 +22,25 @@ namespace HotelBookingSystem.Logic
                     CheckOutDate = checkOut,
                     ExtraBeds = extraBeds
                 });
+                context.SaveChanges();
+            }
+        }
+        public static dynamic GetAllBookingDetails()
+        {
+            using (var context = new HotelMasterEntities())
+            {
+                return context.Bookings.Select(b => new
+                {
+                    b.BookingID,
+                    b.GuestIDFK,
+                    b.RoomIDFK,
+                    b.CheckInDate,
+                    b.CheckOutDate,
+                    b.ExtraBeds,
+                    b.Wifi,
+                    b.Bar,
+                    b.Phone
+                }).ToList();
             }
         }
     }

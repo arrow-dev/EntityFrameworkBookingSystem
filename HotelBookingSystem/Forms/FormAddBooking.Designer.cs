@@ -89,6 +89,7 @@
             this.dtpCheckIn.Name = "dtpCheckIn";
             this.dtpCheckIn.Size = new System.Drawing.Size(200, 20);
             this.dtpCheckIn.TabIndex = 6;
+            this.dtpCheckIn.Value = new System.DateTime(2016, 9, 21, 8, 53, 38, 0);
             // 
             // lblCheckIn
             // 
@@ -114,6 +115,7 @@
             this.dtpCheckOut.Name = "dtpCheckOut";
             this.dtpCheckOut.Size = new System.Drawing.Size(200, 20);
             this.dtpCheckOut.TabIndex = 9;
+            this.dtpCheckOut.Value = new System.DateTime(2016, 9, 21, 8, 54, 38, 0);
             // 
             // btnBook
             // 
