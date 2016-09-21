@@ -48,6 +48,7 @@ namespace HotelBookingSystem.Forms
             var roomId = int.Parse(dataGridViewAvailableRooms.SelectedRows[0].Cells[0].Value.ToString());
             var checkIn = dtpCheckIn.Value.Date;
             var checkOut = dtpCheckOut.Value.Date;
+            var extraBeds = int.Parse(numExtraBeds.Value.ToString());
             var invoiceId = InvoiceController.GetCurrentInvoiceId(guestId);
             //Check if there is a current invoice, if not create one.
             if (invoiceId == 0)
@@ -56,7 +57,8 @@ namespace HotelBookingSystem.Forms
                 invoiceId = InvoiceController.GetCurrentInvoiceId(guestId);
             }
             //Create Booking
-            BookingController.NewBooking(invoiceId, guestId, roomId, checkIn, checkOut, 0);
+            BookingController.NewBooking(invoiceId, guestId, roomId, checkIn, checkOut, extraBeds);
+            DialogResult = DialogResult.OK;
         }
     }
 }

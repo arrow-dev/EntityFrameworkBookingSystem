@@ -37,8 +37,11 @@
             this.lblCheckOut = new System.Windows.Forms.Label();
             this.dtpCheckOut = new System.Windows.Forms.DateTimePicker();
             this.btnBook = new System.Windows.Forms.Button();
+            this.numExtraBeds = new System.Windows.Forms.NumericUpDown();
+            this.lblExtraBeds = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAvailableRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGuests)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numExtraBeds)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewAvailableRooms
@@ -103,7 +106,7 @@
             // lblCheckOut
             // 
             this.lblCheckOut.AutoSize = true;
-            this.lblCheckOut.Location = new System.Drawing.Point(688, 48);
+            this.lblCheckOut.Location = new System.Drawing.Point(688, 69);
             this.lblCheckOut.Name = "lblCheckOut";
             this.lblCheckOut.Size = new System.Drawing.Size(56, 13);
             this.lblCheckOut.TabIndex = 8;
@@ -111,7 +114,7 @@
             // 
             // dtpCheckOut
             // 
-            this.dtpCheckOut.Location = new System.Drawing.Point(691, 64);
+            this.dtpCheckOut.Location = new System.Drawing.Point(691, 85);
             this.dtpCheckOut.Name = "dtpCheckOut";
             this.dtpCheckOut.Size = new System.Drawing.Size(200, 20);
             this.dtpCheckOut.TabIndex = 9;
@@ -121,17 +124,42 @@
             // 
             this.btnBook.Location = new System.Drawing.Point(691, 217);
             this.btnBook.Name = "btnBook";
-            this.btnBook.Size = new System.Drawing.Size(200, 84);
+            this.btnBook.Size = new System.Drawing.Size(200, 160);
             this.btnBook.TabIndex = 10;
             this.btnBook.Text = "Create Booking";
             this.btnBook.UseVisualStyleBackColor = true;
             this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
             // 
+            // numExtraBeds
+            // 
+            this.numExtraBeds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numExtraBeds.Location = new System.Drawing.Point(691, 151);
+            this.numExtraBeds.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numExtraBeds.Name = "numExtraBeds";
+            this.numExtraBeds.ReadOnly = true;
+            this.numExtraBeds.Size = new System.Drawing.Size(53, 26);
+            this.numExtraBeds.TabIndex = 11;
+            // 
+            // lblExtraBeds
+            // 
+            this.lblExtraBeds.AutoSize = true;
+            this.lblExtraBeds.Location = new System.Drawing.Point(688, 135);
+            this.lblExtraBeds.Name = "lblExtraBeds";
+            this.lblExtraBeds.Size = new System.Drawing.Size(57, 13);
+            this.lblExtraBeds.TabIndex = 12;
+            this.lblExtraBeds.Text = "Extra beds";
+            // 
             // FormAddBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 539);
+            this.ClientSize = new System.Drawing.Size(1034, 411);
+            this.Controls.Add(this.lblExtraBeds);
+            this.Controls.Add(this.numExtraBeds);
             this.Controls.Add(this.btnBook);
             this.Controls.Add(this.dtpCheckOut);
             this.Controls.Add(this.lblCheckOut);
@@ -142,9 +170,11 @@
             this.Controls.Add(this.dataGridViewGuests);
             this.Controls.Add(this.dataGridViewAvailableRooms);
             this.Name = "FormAddBooking";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Booking";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAvailableRooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGuests)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numExtraBeds)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +191,7 @@
         private System.Windows.Forms.Label lblCheckOut;
         private System.Windows.Forms.DateTimePicker dtpCheckOut;
         private System.Windows.Forms.Button btnBook;
+        private System.Windows.Forms.NumericUpDown numExtraBeds;
+        private System.Windows.Forms.Label lblExtraBeds;
     }
 }

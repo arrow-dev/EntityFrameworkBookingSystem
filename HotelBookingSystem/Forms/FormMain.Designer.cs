@@ -30,7 +30,6 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabBookings = new System.Windows.Forms.TabPage();
-            this.btnEditBooking = new System.Windows.Forms.Button();
             this.btnNewBooking = new System.Windows.Forms.Button();
             this.dataGridViewBookings = new System.Windows.Forms.DataGridView();
             this.tabRooms = new System.Windows.Forms.TabPage();
@@ -63,7 +62,6 @@
             // 
             // tabBookings
             // 
-            this.tabBookings.Controls.Add(this.btnEditBooking);
             this.tabBookings.Controls.Add(this.btnNewBooking);
             this.tabBookings.Controls.Add(this.dataGridViewBookings);
             this.tabBookings.Location = new System.Drawing.Point(4, 22);
@@ -74,22 +72,13 @@
             this.tabBookings.Text = "Bookings";
             this.tabBookings.UseVisualStyleBackColor = true;
             // 
-            // btnEditBooking
-            // 
-            this.btnEditBooking.Location = new System.Drawing.Point(834, 45);
-            this.btnEditBooking.Name = "btnEditBooking";
-            this.btnEditBooking.Size = new System.Drawing.Size(269, 23);
-            this.btnEditBooking.TabIndex = 7;
-            this.btnEditBooking.Text = "Edit booking";
-            this.btnEditBooking.UseVisualStyleBackColor = true;
-            // 
             // btnNewBooking
             // 
             this.btnNewBooking.Location = new System.Drawing.Point(834, 16);
             this.btnNewBooking.Name = "btnNewBooking";
             this.btnNewBooking.Size = new System.Drawing.Size(269, 23);
             this.btnNewBooking.TabIndex = 6;
-            this.btnNewBooking.Text = "New booking";
+            this.btnNewBooking.Text = "New Booking";
             this.btnNewBooking.UseVisualStyleBackColor = true;
             this.btnNewBooking.Click += new System.EventHandler(this.btnNewBooking_Click);
             // 
@@ -227,7 +216,6 @@
         private System.Windows.Forms.Button btnEditRoom;
         private System.Windows.Forms.Button btnAddRoom;
         private System.Windows.Forms.DataGridView dataGridViewRooms;
-        private System.Windows.Forms.Button btnEditBooking;
         private System.Windows.Forms.Button btnNewBooking;
     }
 }
