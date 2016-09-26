@@ -21,6 +21,19 @@ namespace HotelBookingSystem.Logic
                 context.SaveChanges();
             }
         }
+        public static dynamic GetAllInvoiceDetails()
+        {
+            using (var context = new HotelMasterEntities())
+            {
+                return context.Invoices.Select(i => new
+                {
+                    i.InvoiceID,
+                    i.GuestIDFK,
+                    i.DateCreated,
+                    i.DateCharged
+                }).ToList();
+            }
+        }
 
         public static int GetCurrentInvoiceId(int guestId)
         {

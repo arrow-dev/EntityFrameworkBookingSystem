@@ -43,5 +43,44 @@ namespace HotelBookingSystem.Logic
                 }).ToList();
             }
         }
+
+        public static void AddBarCharge(int bookingId,  decimal ammount)
+        {
+            using (var context = new HotelMasterEntities())
+            {
+                var booking = context.Bookings.FirstOrDefault(b => b.BookingID == bookingId);
+                if (booking != null)
+                {
+                    booking.Bar += ammount;
+                }
+                context.SaveChanges();
+            }
+        }
+
+        public static void AddPhoneCharge(int bookingId, decimal ammount)
+        {
+            using (var context = new HotelMasterEntities())
+            {
+                var booking = context.Bookings.FirstOrDefault(b => b.BookingID == bookingId);
+                if (booking != null)
+                {
+                    booking.Phone += ammount;
+                }
+                context.SaveChanges();
+            }
+        }
+
+        public static void AddWifiCharge(int bookingId)
+        {
+            using (var context = new HotelMasterEntities())
+            {
+                var booking = context.Bookings.FirstOrDefault(b => b.BookingID == bookingId);
+                if (booking != null)
+                {
+                    booking.Wifi = true;
+                }
+                context.SaveChanges();
+            }
+        }
     }
 }

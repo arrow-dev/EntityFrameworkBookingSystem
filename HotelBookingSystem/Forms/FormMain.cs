@@ -28,11 +28,13 @@ namespace HotelBookingSystem
             dataGridViewGuests.DataSource = GuestController.GetAllGuestDetails();
             dataGridViewRooms.DataSource = RoomController.GetAllRoomDetails();
             dataGridViewBookings.DataSource = BookingController.GetAllBookingDetails();
+            dataGridViewInvoices.DataSource = InvoiceController.GetAllInvoiceDetails();
 
             //Set up event handlers to customize header names after data is loaded
             dataGridViewGuests.DataBindingComplete += DataGridViewGuests_DataBindingComplete;
             dataGridViewRooms.DataBindingComplete += DataGridViewRooms_DataBindingComplete;
             dataGridViewBookings.DataBindingComplete += DataGridViewBookings_DataBindingComplete;
+            dataGridViewInvoices.DataBindingComplete += DataGridViewInvoices_DataBindingComplete;
         }
 
         private void DataGridViewGuests_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -49,6 +51,11 @@ namespace HotelBookingSystem
         }
 
         private void DataGridViewBookings_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        private void DataGridViewInvoices_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             //throw new NotImplementedException();
         }

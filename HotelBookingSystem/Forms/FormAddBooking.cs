@@ -18,22 +18,23 @@ namespace HotelBookingSystem.Forms
             InitializeComponent();
             SetDefaultCheckout();
             LoadData();
-            dtpCheckIn.ValueChanged += Dates_ValueChanged;
-            dtpCheckOut.ValueChanged += Dates_ValueChanged;
+            dtpCheckIn.CloseUp += Dates_ValueChanged;
+            dtpCheckOut.CloseUp += Dates_ValueChanged;
         }
 
         private void Dates_ValueChanged(object sender, EventArgs e)
         {
-            SetDefaultCheckout();
+            if (dtpCheckIn.Value >= dtpCheckOut.Value)
+            {
+                dtpCheckOut.Value = dtpCheckIn.Value.AddDays(1);
+            }
             LoadData();
         }
 
         private void SetDefaultCheckout()
         {
-            if (dtpCheckOut.Value.Date <= dtpCheckIn.Value.Date)
-            {
-                dtpCheckOut.Value = dtpCheckIn.Value.AddDays(1);
-            }
+            dtpCheckIn.Value = DateTime.Now;
+            dtpCheckOut.Value = DateTime.Now.AddDays(1);
         }
 
         public void LoadData()
