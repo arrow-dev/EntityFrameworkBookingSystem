@@ -32,7 +32,28 @@ namespace HotelBookingSystem.Logic
                 return context.Bookings.Select(b => new
                 {
                     b.BookingID,
-                    b.GuestIDFK,
+                    b.Guest.FirstName,
+                    b.Guest.LastName,
+                    b.RoomIDFK,
+                    b.CheckInDate,
+                    b.CheckOutDate,
+                    b.ExtraBeds,
+                    b.Wifi,
+                    b.Bar,
+                    b.Phone
+                }).ToList();
+            }
+        }
+
+        public static dynamic GetCurrentBookingDetails()
+        {
+            using (var context = new HotelMasterEntities())
+            {
+                return context.Bookings.Where(b => DateTime.Today >= b.CheckInDate && DateTime.Today <= b.CheckOutDate).Select(b => new
+                {
+                    b.BookingID,
+                    b.Guest.FirstName,
+                    b.Guest.LastName,
                     b.RoomIDFK,
                     b.CheckInDate,
                     b.CheckOutDate,

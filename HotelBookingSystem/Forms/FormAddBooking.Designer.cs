@@ -157,7 +157,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 411);
+            this.ClientSize = new System.Drawing.Size(927, 411);
             this.Controls.Add(this.lblExtraBeds);
             this.Controls.Add(this.numExtraBeds);
             this.Controls.Add(this.btnBook);

@@ -28,7 +28,8 @@ namespace HotelBookingSystem.Logic
                 return context.Invoices.Select(i => new
                 {
                     i.InvoiceID,
-                    i.GuestIDFK,
+                    i.Guest.FirstName,
+                    i.Guest.LastName,
                     i.DateCreated,
                     i.DateCharged
                 }).ToList();
@@ -46,6 +47,42 @@ namespace HotelBookingSystem.Logic
                 }
                 return 0;
             } 
+        }
+
+        public static string PrintInvoice(int invoiceId)
+        {
+            string invoiceText = string.Empty;
+            decimal invoiceTotal = 0.00m;
+
+            using (var context = new HotelMasterEntities())
+            {
+                var bookings = context.Invoices.FirstOrDefault(i => i.InvoiceID == invoiceId).Bookings;
+
+                foreach (var b in bookings)
+                {
+                    decimal bookingTotal = 0.00m;
+                    invoiceText += "\nRoom: " + b.Room.Description;
+                    invoiceText += "\nRoom Price: $" + Math.Round(b.Room.Price);
+                    invoiceText += "\nBar Charge: $" + Math.Round(b.Bar);
+                    invoiceText += "\nPhone Charge: $" + Math.Round(b.Phone);
+                    if (b.Wifi)
+                    {
+                        invoiceText += "\nWIFI: $20";
+                        bookingTotal += 20.00m;
+                    }
+                    if (b.ExtraBeds>0)
+                    {
+                        var extraBedCharge = b.ExtraBeds*30.00m;
+                        invoiceText += "\nExtra beds: x" + b.ExtraBeds + "- $" + extraBedCharge;
+                    }
+                    bookingTotal += Math.Round(b.Room.Price) + Math.Round(b.Bar) + Math.Round(b.Phone);
+                    invoiceTotal += bookingTotal;
+                    invoiceText += "\nRoom Total: $" + bookingTotal;
+                    invoiceText += "\n__________________________________\n";
+                }
+                invoiceText += "\n\nTotal: $" + invoiceTotal;
+            }
+            return invoiceText;
         }
     }
 }

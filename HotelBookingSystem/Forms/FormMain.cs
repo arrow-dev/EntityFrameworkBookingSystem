@@ -27,7 +27,7 @@ namespace HotelBookingSystem
             //Load data
             dataGridViewGuests.DataSource = GuestController.GetAllGuestDetails();
             dataGridViewRooms.DataSource = RoomController.GetAllRoomDetails();
-            dataGridViewBookings.DataSource = BookingController.GetAllBookingDetails();
+            dataGridViewBookings.DataSource = BookingController.GetCurrentBookingDetails();
             dataGridViewInvoices.DataSource = InvoiceController.GetAllInvoiceDetails();
 
             //Set up event handlers to customize header names after data is loaded
@@ -98,11 +98,70 @@ namespace HotelBookingSystem
             }
         }
 
+        private void btnBar_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewBookings.SelectedRows.Count > 0)
+            {
+                BookingController.AddBarCharge(Int32.Parse(dataGridViewBookings.SelectedRows[0].Cells[0].Value.ToString()), numericUpDownBar.Value);
+                LoadDataGridViews();
+            }
+            else
+            {
+                NoBookingSelectedMessage();
+            }
+
+        }
+
+        private void btnPhone_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewBookings.SelectedRows.Count > 0)
+            {
+                BookingController.AddPhoneCharge(
+                    int.Parse(dataGridViewBookings.SelectedRows[0].Cells[0].Value.ToString()),
+                    numericUpDownPhone.Value);
+                LoadDataGridViews();
+            }
+            else
+            {
+                NoBookingSelectedMessage();
+            }
+        }
+
+        private void btnWIFI_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewBookings.SelectedRows.Count > 0)
+            {
+                if (MessageBox.Show("Enable WIFI for this booking?", "Enable WIFI", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    BookingController.AddWifiCharge(int.Parse(dataGridViewBookings.SelectedRows[0].Cells[0].Value.ToString()));
+                    LoadDataGridViews();
+                }
+            }
+        }
+
         private void btnNewBooking_Click(object sender, EventArgs e)
         {
             if (new FormAddBooking().ShowDialog() == DialogResult.OK)
             {
                 LoadDataGridViews();
+            }
+            else
+            {
+                NoBookingSelectedMessage();
+            }
+        }
+
+        private void NoBookingSelectedMessage()
+        {
+            MessageBox.Show("You must select a booking!");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewInvoices.SelectedRows.Count > 0)
+            {
+                var invoice = InvoiceController.PrintInvoice(int.Parse(dataGridViewInvoices.SelectedRows[0].Cells[0].Value.ToString()));
+                MessageBox.Show(invoice);
             }
         }
     }

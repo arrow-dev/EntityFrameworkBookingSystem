@@ -30,7 +30,16 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabBookings = new System.Windows.Forms.TabPage();
+            this.lblWIFI = new System.Windows.Forms.Label();
+            this.btnWIFI = new System.Windows.Forms.Button();
+            this.lblBookingManagement = new System.Windows.Forms.Label();
             this.btnNewBooking = new System.Windows.Forms.Button();
+            this.btnPhone = new System.Windows.Forms.Button();
+            this.lblPhoneCharge = new System.Windows.Forms.Label();
+            this.numericUpDownPhone = new System.Windows.Forms.NumericUpDown();
+            this.btnBar = new System.Windows.Forms.Button();
+            this.lblBarCharge = new System.Windows.Forms.Label();
+            this.numericUpDownBar = new System.Windows.Forms.NumericUpDown();
             this.dataGridViewBookings = new System.Windows.Forms.DataGridView();
             this.tabRooms = new System.Windows.Forms.TabPage();
             this.btnEditRoom = new System.Windows.Forms.Button();
@@ -43,16 +52,10 @@
             this.tabInvoices = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewInvoices = new System.Windows.Forms.DataGridView();
-            this.numericUpDownBar = new System.Windows.Forms.NumericUpDown();
-            this.lblBarCharge = new System.Windows.Forms.Label();
-            this.btnBar = new System.Windows.Forms.Button();
-            this.btnPhone = new System.Windows.Forms.Button();
-            this.lblPhoneCharge = new System.Windows.Forms.Label();
-            this.numericUpDownPhone = new System.Windows.Forms.NumericUpDown();
-            this.checkBoxWIFI = new System.Windows.Forms.CheckBox();
-            this.lblBookingManagement = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabBookings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPhone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookings)).BeginInit();
             this.tabRooms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRooms)).BeginInit();
@@ -60,8 +63,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGuests)).BeginInit();
             this.tabInvoices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInvoices)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPhone)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -78,9 +79,10 @@
             // 
             // tabBookings
             // 
+            this.tabBookings.Controls.Add(this.lblWIFI);
+            this.tabBookings.Controls.Add(this.btnWIFI);
             this.tabBookings.Controls.Add(this.lblBookingManagement);
             this.tabBookings.Controls.Add(this.btnNewBooking);
-            this.tabBookings.Controls.Add(this.checkBoxWIFI);
             this.tabBookings.Controls.Add(this.btnPhone);
             this.tabBookings.Controls.Add(this.lblPhoneCharge);
             this.tabBookings.Controls.Add(this.numericUpDownPhone);
@@ -93,8 +95,37 @@
             this.tabBookings.Padding = new System.Windows.Forms.Padding(3);
             this.tabBookings.Size = new System.Drawing.Size(1109, 319);
             this.tabBookings.TabIndex = 1;
-            this.tabBookings.Text = "Bookings";
+            this.tabBookings.Text = "Active Bookings";
             this.tabBookings.UseVisualStyleBackColor = true;
+            // 
+            // lblWIFI
+            // 
+            this.lblWIFI.AutoSize = true;
+            this.lblWIFI.Location = new System.Drawing.Point(841, 152);
+            this.lblWIFI.Name = "lblWIFI";
+            this.lblWIFI.Size = new System.Drawing.Size(119, 26);
+            this.lblWIFI.TabIndex = 16;
+            this.lblWIFI.Text = "Enable WIFI for the \r\nduration of the booking.";
+            // 
+            // btnWIFI
+            // 
+            this.btnWIFI.Location = new System.Drawing.Point(966, 152);
+            this.btnWIFI.Name = "btnWIFI";
+            this.btnWIFI.Size = new System.Drawing.Size(136, 26);
+            this.btnWIFI.TabIndex = 15;
+            this.btnWIFI.Text = "Enable WIFI";
+            this.btnWIFI.UseVisualStyleBackColor = true;
+            this.btnWIFI.Click += new System.EventHandler(this.btnWIFI_Click);
+            // 
+            // lblBookingManagement
+            // 
+            this.lblBookingManagement.AutoSize = true;
+            this.lblBookingManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookingManagement.Location = new System.Drawing.Point(848, 28);
+            this.lblBookingManagement.Name = "lblBookingManagement";
+            this.lblBookingManagement.Size = new System.Drawing.Size(137, 20);
+            this.lblBookingManagement.TabIndex = 14;
+            this.lblBookingManagement.Text = "Manage Bookings";
             // 
             // btnNewBooking
             // 
@@ -105,6 +136,80 @@
             this.btnNewBooking.Text = "New Booking";
             this.btnNewBooking.UseVisualStyleBackColor = true;
             this.btnNewBooking.Click += new System.EventHandler(this.btnNewBooking_Click);
+            // 
+            // btnPhone
+            // 
+            this.btnPhone.Location = new System.Drawing.Point(966, 106);
+            this.btnPhone.Name = "btnPhone";
+            this.btnPhone.Size = new System.Drawing.Size(136, 23);
+            this.btnPhone.TabIndex = 12;
+            this.btnPhone.Text = "Add phone charge";
+            this.btnPhone.UseVisualStyleBackColor = true;
+            this.btnPhone.Click += new System.EventHandler(this.btnPhone_Click);
+            // 
+            // lblPhoneCharge
+            // 
+            this.lblPhoneCharge.AutoSize = true;
+            this.lblPhoneCharge.Location = new System.Drawing.Point(833, 110);
+            this.lblPhoneCharge.Name = "lblPhoneCharge";
+            this.lblPhoneCharge.Size = new System.Drawing.Size(13, 13);
+            this.lblPhoneCharge.TabIndex = 11;
+            this.lblPhoneCharge.Text = "$";
+            // 
+            // numericUpDownPhone
+            // 
+            this.numericUpDownPhone.DecimalPlaces = 2;
+            this.numericUpDownPhone.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numericUpDownPhone.Location = new System.Drawing.Point(852, 108);
+            this.numericUpDownPhone.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownPhone.Name = "numericUpDownPhone";
+            this.numericUpDownPhone.Size = new System.Drawing.Size(108, 20);
+            this.numericUpDownPhone.TabIndex = 10;
+            // 
+            // btnBar
+            // 
+            this.btnBar.Location = new System.Drawing.Point(966, 60);
+            this.btnBar.Name = "btnBar";
+            this.btnBar.Size = new System.Drawing.Size(136, 23);
+            this.btnBar.TabIndex = 9;
+            this.btnBar.Text = "Add bar charge";
+            this.btnBar.UseVisualStyleBackColor = true;
+            this.btnBar.Click += new System.EventHandler(this.btnBar_Click);
+            // 
+            // lblBarCharge
+            // 
+            this.lblBarCharge.AutoSize = true;
+            this.lblBarCharge.Location = new System.Drawing.Point(833, 64);
+            this.lblBarCharge.Name = "lblBarCharge";
+            this.lblBarCharge.Size = new System.Drawing.Size(13, 13);
+            this.lblBarCharge.TabIndex = 8;
+            this.lblBarCharge.Text = "$";
+            // 
+            // numericUpDownBar
+            // 
+            this.numericUpDownBar.DecimalPlaces = 2;
+            this.numericUpDownBar.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numericUpDownBar.Location = new System.Drawing.Point(852, 62);
+            this.numericUpDownBar.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownBar.Name = "numericUpDownBar";
+            this.numericUpDownBar.Size = new System.Drawing.Size(108, 20);
+            this.numericUpDownBar.TabIndex = 7;
             // 
             // dataGridViewBookings
             // 
@@ -228,6 +333,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Charge Invoice";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridViewInvoices
             // 
@@ -241,98 +347,6 @@
             this.dataGridViewInvoices.Size = new System.Drawing.Size(822, 307);
             this.dataGridViewInvoices.TabIndex = 2;
             // 
-            // numericUpDownBar
-            // 
-            this.numericUpDownBar.DecimalPlaces = 2;
-            this.numericUpDownBar.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numericUpDownBar.Location = new System.Drawing.Point(852, 62);
-            this.numericUpDownBar.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numericUpDownBar.Name = "numericUpDownBar";
-            this.numericUpDownBar.Size = new System.Drawing.Size(108, 20);
-            this.numericUpDownBar.TabIndex = 7;
-            // 
-            // lblBarCharge
-            // 
-            this.lblBarCharge.AutoSize = true;
-            this.lblBarCharge.Location = new System.Drawing.Point(833, 64);
-            this.lblBarCharge.Name = "lblBarCharge";
-            this.lblBarCharge.Size = new System.Drawing.Size(13, 13);
-            this.lblBarCharge.TabIndex = 8;
-            this.lblBarCharge.Text = "$";
-            // 
-            // btnBar
-            // 
-            this.btnBar.Location = new System.Drawing.Point(966, 60);
-            this.btnBar.Name = "btnBar";
-            this.btnBar.Size = new System.Drawing.Size(136, 23);
-            this.btnBar.TabIndex = 9;
-            this.btnBar.Text = "Add bar charge";
-            this.btnBar.UseVisualStyleBackColor = true;
-            // 
-            // btnPhone
-            // 
-            this.btnPhone.Location = new System.Drawing.Point(966, 106);
-            this.btnPhone.Name = "btnPhone";
-            this.btnPhone.Size = new System.Drawing.Size(136, 23);
-            this.btnPhone.TabIndex = 12;
-            this.btnPhone.Text = "Add phone charge";
-            this.btnPhone.UseVisualStyleBackColor = true;
-            // 
-            // lblPhoneCharge
-            // 
-            this.lblPhoneCharge.AutoSize = true;
-            this.lblPhoneCharge.Location = new System.Drawing.Point(833, 110);
-            this.lblPhoneCharge.Name = "lblPhoneCharge";
-            this.lblPhoneCharge.Size = new System.Drawing.Size(13, 13);
-            this.lblPhoneCharge.TabIndex = 11;
-            this.lblPhoneCharge.Text = "$";
-            // 
-            // numericUpDownPhone
-            // 
-            this.numericUpDownPhone.DecimalPlaces = 2;
-            this.numericUpDownPhone.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numericUpDownPhone.Location = new System.Drawing.Point(852, 108);
-            this.numericUpDownPhone.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numericUpDownPhone.Name = "numericUpDownPhone";
-            this.numericUpDownPhone.Size = new System.Drawing.Size(108, 20);
-            this.numericUpDownPhone.TabIndex = 10;
-            // 
-            // checkBoxWIFI
-            // 
-            this.checkBoxWIFI.AutoSize = true;
-            this.checkBoxWIFI.Location = new System.Drawing.Point(852, 160);
-            this.checkBoxWIFI.Name = "checkBoxWIFI";
-            this.checkBoxWIFI.Size = new System.Drawing.Size(85, 17);
-            this.checkBoxWIFI.TabIndex = 13;
-            this.checkBoxWIFI.Text = "Enable WIFI";
-            this.checkBoxWIFI.UseVisualStyleBackColor = true;
-            // 
-            // lblBookingManagement
-            // 
-            this.lblBookingManagement.AutoSize = true;
-            this.lblBookingManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookingManagement.Location = new System.Drawing.Point(848, 28);
-            this.lblBookingManagement.Name = "lblBookingManagement";
-            this.lblBookingManagement.Size = new System.Drawing.Size(137, 20);
-            this.lblBookingManagement.TabIndex = 14;
-            this.lblBookingManagement.Text = "Manage Bookings";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,10 +354,13 @@
             this.ClientSize = new System.Drawing.Size(1191, 537);
             this.Controls.Add(this.tabControl);
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hotel Booking System";
             this.tabControl.ResumeLayout(false);
             this.tabBookings.ResumeLayout(false);
             this.tabBookings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPhone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookings)).EndInit();
             this.tabRooms.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRooms)).EndInit();
@@ -351,8 +368,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGuests)).EndInit();
             this.tabInvoices.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInvoices)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPhone)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -375,13 +390,14 @@
         private System.Windows.Forms.DataGridView dataGridViewInvoices;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NumericUpDown numericUpDownBar;
-        private System.Windows.Forms.CheckBox checkBoxWIFI;
         private System.Windows.Forms.Button btnPhone;
         private System.Windows.Forms.Label lblPhoneCharge;
         private System.Windows.Forms.NumericUpDown numericUpDownPhone;
         private System.Windows.Forms.Button btnBar;
         private System.Windows.Forms.Label lblBarCharge;
         private System.Windows.Forms.Label lblBookingManagement;
+        private System.Windows.Forms.Label lblWIFI;
+        private System.Windows.Forms.Button btnWIFI;
     }
 }
 
