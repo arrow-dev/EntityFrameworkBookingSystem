@@ -33,7 +33,6 @@ namespace HotelBookingSystem.Forms
             if (dtpCheckIn.Value >= dtpCheckOut.Value)
             {
                 dtpCheckOut.Value = dtpCheckIn.Value.AddDays(1);
-                MessageBox.Show("Check out date cannot be before check in date.");
             }
             LoadData();
         }
