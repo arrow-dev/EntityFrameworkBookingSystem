@@ -10,6 +10,7 @@ namespace HotelBookingSystem.Logic
 {
     public static class RoomController
     {
+        //Add new room to database
         public static void NewRoom(string description, bool doubleBed, decimal price)
         {
             using (var context = new HotelMasterEntities())
@@ -24,6 +25,7 @@ namespace HotelBookingSystem.Logic
             }
         }
 
+        //Edit a room and save to database
         public static void EditRoom(int id, string description, bool doubleBed, decimal price)
         {
             using (var context = new HotelMasterEntities())
@@ -39,6 +41,7 @@ namespace HotelBookingSystem.Logic
             }
         }
 
+        //Get room by id
         public static Room GetRoomById(int id)
         {
             using (var context = new HotelMasterEntities())
@@ -47,6 +50,7 @@ namespace HotelBookingSystem.Logic
             }
         }
 
+        //Get all rooms
         public static dynamic GetAllRoomDetails()
         {
             using (var context = new HotelMasterEntities())
@@ -61,14 +65,18 @@ namespace HotelBookingSystem.Logic
             }
         }
 
+        //Delete a room from the database
         public static void DeleteRoomById(int id)
         {
             using (var context = new HotelMasterEntities())
             {
-                context.Rooms.Remove(GetRoomById(id));
+                var room = context.Rooms.FirstOrDefault(r => r.RoomID == id);
+                context.Rooms.Remove(room);
+                context.SaveChanges();
             }
         }
 
+        //Get available rooms for a date range
         public static dynamic GetAvailableRooms(DateTime checkIn, DateTime checkOut)
         {
             using (var context = new HotelMasterEntities())

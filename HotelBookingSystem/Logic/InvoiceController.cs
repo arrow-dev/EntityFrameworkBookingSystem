@@ -9,6 +9,7 @@ namespace HotelBookingSystem.Logic
 {
     public static class InvoiceController
     {
+        //Add new invoice to database
         public static void NewInvoice(int guestId)
         {
             using (var context = new HotelMasterEntities())
@@ -21,6 +22,8 @@ namespace HotelBookingSystem.Logic
                 context.SaveChanges();
             }
         }
+
+        //Get all invoices from database
         public static dynamic GetAllInvoiceDetails()
         {
             using (var context = new HotelMasterEntities())
@@ -36,6 +39,7 @@ namespace HotelBookingSystem.Logic
             }
         }
 
+        //Get current invoice for guest
         public static int GetCurrentInvoiceId(int guestId)
         {
             using (var context = new HotelMasterEntities())
@@ -49,6 +53,42 @@ namespace HotelBookingSystem.Logic
             } 
         }
 
+        //Get invoices by guest name
+        public static dynamic InvoiceByName(string sequence)
+        {
+            using (var context = new HotelMasterEntities())
+            {
+                return context.Invoices.Where(i => (i.Guest.FirstName + " " + i.Guest.LastName).Contains(sequence))
+                    .Select(i => new
+                    {
+                        i.InvoiceID,
+                        i.Guest.FirstName,
+                        i.Guest.LastName,
+                        i.DateCreated,
+                        i.DateCharged
+                    }).ToList();
+            }
+        }
+
+        //Check if bookings are complete
+        public static bool BookingsComplete(int invoiceId)
+        {
+            var complete = true;
+            using (var context = new HotelMasterEntities())
+            {
+                var bookings = context.Invoices.FirstOrDefault(i => i.InvoiceID == invoiceId).Bookings;
+                foreach (var b in bookings)
+                {
+                    if (b.CheckOutDate > DateTime.Today)
+                    {
+                        complete = false;
+                    }
+                }
+                return complete;
+            }
+        }
+
+        //Charge invoice and print details
         public static string PrintInvoice(int invoiceId)
         {
             string invoiceText = string.Empty;
@@ -81,6 +121,8 @@ namespace HotelBookingSystem.Logic
                     invoiceText += "\n__________________________________\n";
                 }
                 invoiceText += "\n\nTotal: $" + invoiceTotal;
+                context.Invoices.FirstOrDefault(i => i.InvoiceID == invoiceId).DateCharged = DateTime.Today;
+                context.SaveChanges();
             }
             return invoiceText;
         }

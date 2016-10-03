@@ -11,6 +11,7 @@ namespace HotelBookingSystem.Logic
 {
     public static class GuestController
     {
+        //Add new guest to database
         public static void NewGuest(string firstName, string lastName, string email, string address, string phone)
         {
             using (var context = new HotelMasterEntities())
@@ -27,6 +28,7 @@ namespace HotelBookingSystem.Logic
             }
         }
 
+        //Edit guest
         public static void EditGuest(int id, string firstName, string lastName, string email, string address, string phone)
         {
             using (var context = new HotelMasterEntities())
@@ -44,6 +46,7 @@ namespace HotelBookingSystem.Logic
             }
         }
 
+        //Get guest details by id
         public static Guest GetGuestById(int id)
         {
             using (var context = new HotelMasterEntities())
@@ -52,6 +55,7 @@ namespace HotelBookingSystem.Logic
             }
         }
 
+        //Get all guests
         public static dynamic GetAllGuestDetails()
         {
             using (var context = new HotelMasterEntities())
@@ -68,11 +72,32 @@ namespace HotelBookingSystem.Logic
             }
         }
 
+        //Delete a guest
         public static void DeleteGuestById(int id)
         {
             using (var context = new HotelMasterEntities())
             {
-                context.Guests.Remove(GetGuestById(id));
+                var guest = context.Guests.FirstOrDefault(g => g.GuestID == id);
+                context.Guests.Remove(guest);
+                context.SaveChanges();
+            }
+        }
+
+        //Get guest by name
+        public static dynamic GuestsByName(string sequence)
+        {
+            using (var context = new HotelMasterEntities())
+            {
+                return context.Guests.Where(g => (g.FirstName + " " + g.LastName).Contains(sequence))
+                    .Select(g => new
+                    {
+                        g.GuestID,
+                        g.FirstName,
+                        g.LastName,
+                        g.Email,
+                        g.Address,
+                        g.Phone
+                    }).ToList();
             }
         }
     }

@@ -25,6 +25,7 @@ namespace HotelBookingSystem.Forms
             numPrice.Value = selectedRoom.Price;
         }
 
+        //Edit room details and save to the database
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (txtDescription.Text.Length  > 0 && numPrice.Value > 0)

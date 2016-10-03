@@ -18,6 +18,7 @@ namespace HotelBookingSystem.Forms
             InitializeComponent();
         }
 
+        //Saves a new room to the database
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (txtDescription.Text.Length > 0 &&  numPrice.Value > 0)

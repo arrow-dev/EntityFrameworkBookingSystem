@@ -29,6 +29,7 @@ namespace HotelBookingSystem
             txtPhone.Text = selectedGuest.Phone;
         }
 
+        //Edits a guest in the database
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (txtFirstName.Text.Length > 0 &&

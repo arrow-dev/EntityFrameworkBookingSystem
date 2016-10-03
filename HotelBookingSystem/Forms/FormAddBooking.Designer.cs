@@ -55,6 +55,7 @@
             this.dataGridViewAvailableRooms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewAvailableRooms.Size = new System.Drawing.Size(473, 160);
             this.dataGridViewAvailableRooms.TabIndex = 2;
+            this.dataGridViewAvailableRooms.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewAvailableRooms_DataBindingComplete);
             // 
             // dataGridViewGuests
             // 
@@ -67,6 +68,7 @@
             this.dataGridViewGuests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewGuests.Size = new System.Drawing.Size(473, 160);
             this.dataGridViewGuests.TabIndex = 3;
+            this.dataGridViewGuests.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewGuests_DataBindingComplete);
             // 
             // lblAv
             // 
