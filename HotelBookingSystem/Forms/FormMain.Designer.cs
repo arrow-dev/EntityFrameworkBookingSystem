@@ -59,10 +59,10 @@
             this.btnAddGuest = new System.Windows.Forms.Button();
             this.dataGridViewGuests = new System.Windows.Forms.DataGridView();
             this.tabInvoices = new System.Windows.Forms.TabPage();
-            this.btnChargeInvoice = new System.Windows.Forms.Button();
-            this.dataGridViewInvoices = new System.Windows.Forms.DataGridView();
             this.lblSearchInvoices = new System.Windows.Forms.Label();
             this.txtSearchInvoices = new System.Windows.Forms.TextBox();
+            this.btnChargeInvoice = new System.Windows.Forms.Button();
+            this.dataGridViewInvoices = new System.Windows.Forms.DataGridView();
             this.tabControl.SuspendLayout();
             this.tabAllBookings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAllBookings)).BeginInit();
@@ -85,14 +85,15 @@
             this.tabControl.Controls.Add(this.tabRooms);
             this.tabControl.Controls.Add(this.tabGuests);
             this.tabControl.Controls.Add(this.tabInvoices);
-            this.tabControl.Location = new System.Drawing.Point(37, 165);
+            this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1117, 345);
+            this.tabControl.Size = new System.Drawing.Size(1117, 344);
             this.tabControl.TabIndex = 0;
             // 
             // tabAllBookings
             // 
+            this.tabAllBookings.BackColor = System.Drawing.Color.Transparent;
             this.tabAllBookings.Controls.Add(this.lblSearch);
             this.tabAllBookings.Controls.Add(this.txtSearch);
             this.tabAllBookings.Controls.Add(this.btnDeleteBooking);
@@ -100,10 +101,9 @@
             this.tabAllBookings.Controls.Add(this.dataGridViewAllBookings);
             this.tabAllBookings.Location = new System.Drawing.Point(4, 22);
             this.tabAllBookings.Name = "tabAllBookings";
-            this.tabAllBookings.Size = new System.Drawing.Size(1109, 319);
+            this.tabAllBookings.Size = new System.Drawing.Size(1109, 318);
             this.tabAllBookings.TabIndex = 4;
             this.tabAllBookings.Text = "All Bookings";
-            this.tabAllBookings.UseVisualStyleBackColor = true;
             // 
             // lblSearch
             // 
@@ -170,7 +170,7 @@
             this.tabActiveBookings.Location = new System.Drawing.Point(4, 22);
             this.tabActiveBookings.Name = "tabActiveBookings";
             this.tabActiveBookings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabActiveBookings.Size = new System.Drawing.Size(1109, 319);
+            this.tabActiveBookings.Size = new System.Drawing.Size(1109, 318);
             this.tabActiveBookings.TabIndex = 1;
             this.tabActiveBookings.Text = "Active Bookings";
             this.tabActiveBookings.UseVisualStyleBackColor = true;
@@ -299,7 +299,7 @@
             this.tabRooms.Location = new System.Drawing.Point(4, 22);
             this.tabRooms.Name = "tabRooms";
             this.tabRooms.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRooms.Size = new System.Drawing.Size(1109, 319);
+            this.tabRooms.Size = new System.Drawing.Size(1109, 318);
             this.tabRooms.TabIndex = 2;
             this.tabRooms.Text = "Rooms";
             this.tabRooms.UseVisualStyleBackColor = true;
@@ -357,7 +357,7 @@
             this.tabGuests.Location = new System.Drawing.Point(4, 22);
             this.tabGuests.Name = "tabGuests";
             this.tabGuests.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGuests.Size = new System.Drawing.Size(1109, 319);
+            this.tabGuests.Size = new System.Drawing.Size(1109, 318);
             this.tabGuests.TabIndex = 0;
             this.tabGuests.Text = "Guests";
             this.tabGuests.UseVisualStyleBackColor = true;
@@ -430,10 +430,27 @@
             this.tabInvoices.Location = new System.Drawing.Point(4, 22);
             this.tabInvoices.Name = "tabInvoices";
             this.tabInvoices.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInvoices.Size = new System.Drawing.Size(1109, 319);
+            this.tabInvoices.Size = new System.Drawing.Size(1109, 318);
             this.tabInvoices.TabIndex = 3;
             this.tabInvoices.Text = "Invoices";
             this.tabInvoices.UseVisualStyleBackColor = true;
+            // 
+            // lblSearchInvoices
+            // 
+            this.lblSearchInvoices.AutoSize = true;
+            this.lblSearchInvoices.Location = new System.Drawing.Point(831, 54);
+            this.lblSearchInvoices.Name = "lblSearchInvoices";
+            this.lblSearchInvoices.Size = new System.Drawing.Size(41, 13);
+            this.lblSearchInvoices.TabIndex = 14;
+            this.lblSearchInvoices.Text = "Search";
+            // 
+            // txtSearchInvoices
+            // 
+            this.txtSearchInvoices.Location = new System.Drawing.Point(878, 51);
+            this.txtSearchInvoices.Name = "txtSearchInvoices";
+            this.txtSearchInvoices.Size = new System.Drawing.Size(225, 20);
+            this.txtSearchInvoices.TabIndex = 13;
+            this.txtSearchInvoices.TextChanged += new System.EventHandler(this.txtSearchInvoices_TextChanged);
             // 
             // btnChargeInvoice
             // 
@@ -457,29 +474,14 @@
             this.dataGridViewInvoices.Size = new System.Drawing.Size(822, 307);
             this.dataGridViewInvoices.TabIndex = 2;
             // 
-            // lblSearchInvoices
-            // 
-            this.lblSearchInvoices.AutoSize = true;
-            this.lblSearchInvoices.Location = new System.Drawing.Point(831, 54);
-            this.lblSearchInvoices.Name = "lblSearchInvoices";
-            this.lblSearchInvoices.Size = new System.Drawing.Size(41, 13);
-            this.lblSearchInvoices.TabIndex = 14;
-            this.lblSearchInvoices.Text = "Search";
-            // 
-            // txtSearchInvoices
-            // 
-            this.txtSearchInvoices.Location = new System.Drawing.Point(878, 51);
-            this.txtSearchInvoices.Name = "txtSearchInvoices";
-            this.txtSearchInvoices.Size = new System.Drawing.Size(225, 20);
-            this.txtSearchInvoices.TabIndex = 13;
-            this.txtSearchInvoices.TextChanged += new System.EventHandler(this.txtSearchInvoices_TextChanged);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1191, 537);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1143, 372);
             this.Controls.Add(this.tabControl);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hotel Booking System";
